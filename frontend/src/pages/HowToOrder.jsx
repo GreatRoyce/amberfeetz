@@ -1,0 +1,130 @@
+import { useNavigate } from "react-router-dom";
+import { Small } from "../components/ui/Typography";
+import orderData from "../data/order";
+import business from "../data/business";
+import orderHero from "../assets/images/maker/order-hero.jpg";
+import PageContainer from "../components/layout/PageContainer";
+import { FaArrowRight, FaCamera, FaWhatsapp } from "react-icons/fa";
+import Button from "../components/ui/Button";
+import { TbShoe } from "react-icons/tb";
+import { buildWhatsAppUrl } from "../features/whatsapp/utils/buildWhatsAppUrl";
+
+const HowToOrder = () => {
+  const navigate = useNavigate();
+  const whatsappUrl = buildWhatsAppUrl({
+    number: business.whatsapp,
+    text: "Hello, I'd like to discuss ordering a pair, custom designs, sizes and materials with the maker.",
+  });
+
+  return (
+    <PageContainer>
+      <header
+        style={{ backgroundImage: `url(${orderHero})` }}
+        className="relative isolate min-h-44 overflow-hidden rounded-md bg-primary bg-cover bg-center bg-no-repeat"
+      >
+        <div
+          className="absolute inset-0 -z-10 rounded-md border bg-black/40"
+          aria-hidden="true"
+        />
+        <div className="flex w-3/4 flex-col space-y-1 p-4">
+          <Small className="text-offwhite leading-relaxed">
+            Ordering & Customization
+          </Small>
+          <h1 className="text-offwhite text-lg font-semibold tracking-wide font-display">
+            How to Order
+          </h1>
+          <p className="text-offwhite text-xs leading-relaxed">
+            A pair from AmberFeetz doesn't come from a warehouse. It begins with
+            a conversation and is crafted for you.
+          </p>
+        </div>
+      </header>
+
+      <div className="space-y-4">
+        <ol className="space-y-3" aria-label="How to order a pair" role="list">
+          {orderData.map((step) => (
+            <li
+              className="textshade grid grid-cols-[auto_minmax(0,1fr)_30%] items-start gap-2 rounded-md border p-2"
+              key={step.id}
+            >
+              <small className="rounded-full border bg-tertiary/30 p-1 font-semibold text-inverted">
+                {step.numbering}
+              </small>
+              <div className="flex min-w-0 flex-col items-start space-y-1 break-words text-left">
+                <Small className="text-gray-500 leading-relaxed">
+                  {step.label}
+                </Small>
+                <h2 className="text-sm font-display font-semibold">
+                  {step.title}
+                </h2>
+                <p className="text-gray-700 text-xs leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+              <img
+                src={step.image}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="h-32 w-full rounded-sm object-cover"
+              />
+            </li>
+          ))}
+        </ol>
+
+        <div className="h-fit bg-gray-500/10 justify-center items-center grid grid-cols-[auto_5fr] shadow-md rounded-md my-2 p-1">
+          <FaCamera
+            size={18}
+            aria-hidden="true"
+            className="rounded-full p-1 border border-primary bg-primary text-offwhite m-1"
+          />
+          <div className="flex flex-col justify-start text-left mx-auto p-1">
+            <h2 className="text-[10px] leading-relaxed font-display text-inverted pt-1">
+              Our Craft Guarantee
+            </h2>
+            <small className="text-[10px] leading-relaxed text-inverted/70 pt-1">
+              All repairs use genuine materials such as vegetable-tanned leather
+              insoles, English oak bark soles and traditional stitching methods
+              to preserve the original character and lasting quality of your
+              shoes.
+            </small>
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-tertiary/15 bg-white p-2">
+          <div className="flex flex-col gap-1">
+            <Button
+              leftIcon={<TbShoe size={14} aria-hidden="true" />}
+              rightIcon={<FaArrowRight size={10} aria-hidden="true" />}
+              fullWidth
+              className="min-h-11 rounded-lg text-white uppercase shadow-none hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              size="sm"
+              onClick={() => navigate("/catalogue")}
+            >
+              Browse Designs
+            </Button>
+            <Button
+              leftIcon={<FaWhatsapp size={14} aria-hidden="true" />}
+              rightIcon={<FaArrowRight size={10} aria-hidden="true" />}
+              variant="outline"
+              fullWidth
+              className="h-auto min-h-11 gap-1 rounded-lg border-primary/20 bg-offwhite py-2 text-inverted shadow-none hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              size="sm"
+              onClick={() =>
+                window.open(whatsappUrl, "_blank", "noopener,noreferrer")
+              }
+            >
+              CHAT ON WHATSAPP
+            </Button>
+          </div>
+          <p className="text-[10px] leading-relaxed text-inverted/70 mt-1 text-center p-1 mx-auto">
+            Discuss custom designs, adjustments, materials or any questions
+            directly with the maker.
+          </p>
+        </div>
+      </div>
+    </PageContainer>
+  );
+};
+
+export default HowToOrder;
