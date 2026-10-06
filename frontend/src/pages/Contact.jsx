@@ -2,7 +2,6 @@
 import { FaArrowRight, FaChevronRight, FaRegClock, FaRegCalendarAlt, FaRegHandshake } from "react-icons/fa";
 import PageContainer from "../components/layout/PageContainer";
 import { Small } from "../components/ui/Typography";
-import { Logo } from "../components/ui/Logo";
 import business from "../data/business";
 import { contactHero, contactMethods, workshop, visitingHours, connectLinks, personalApproach } from "../data/contact";
 import { buildWhatsAppUrl } from "../features/whatsapp/utils/buildWhatsAppUrl";
@@ -27,14 +26,14 @@ const Contact = () => {
 
   return (
     <PageContainer wide>
-      <div className="mx-auto max-w-3xl space-y-2 sm:space-y-2">
+      <div className="mx-auto space-y-2 sm:space-y-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0">
         <header style={{ backgroundImage: `url(${contactHero.image})` }}
-          className="relative isolate overflow-hidden rounded-xl bg-primary bg-cover bg-center text-offwhite">
+          className="relative isolate overflow-hidden rounded-xl bg-primary bg-cover bg-center text-offwhite lg:col-span-2">
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/65 to-black/20" aria-hidden="true" />
-          <div className="flex min-h-52 flex-col justify-center p-5 sm:min-h-80 sm:p-8">
+          <div className="flex min-h-52 flex-col justify-center p-5 sm:min-h-80 sm:p-8 lg:min-h-96 lg:p-12">
             <Small className="leading-relaxed text-offwhite/80">{contactHero.eyebrow}</Small>
-            <h1 className="mt-3 max-w-sm font-display text-2xl font-semibold leading-tight sm:text-5xl">{contactHero.title}</h1>
-            <p className="mt-3 max-w-sm text-xs leading-relaxed text-offwhite/90 sm:text-base">{contactHero.description}</p>
+            <h1 className="mt-3 max-w-sm font-display text-2xl font-semibold leading-tight sm:max-w-lg sm:text-4xl lg:text-5xl">{contactHero.title}</h1>
+            <p className="mt-3 max-w-sm text-xs leading-relaxed text-offwhite/90 sm:max-w-lg sm:text-base">{contactHero.description}</p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
               {availableMethods.map(({ id, icon: Icon, type, label }) => (
                 <a key={id} href={destinations[type]} {...(type === "whatsapp" ? externalProps : {})}
@@ -46,7 +45,7 @@ const Contact = () => {
           </div>
         </header>
 
-        <section aria-label="Contact options" className="grid gap-3 sm:grid-cols-2">
+        <section aria-label="Contact options" className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:col-span-2 lg:gap-6">
           {contactMethods.map(({ id, icon: Icon, title, description, label, type, recommended }) => (
             <article key={id} className={`${cardStyle} ${recommended ? "bg-secondary sm:col-span-2" : "bg-white/60"}`}>
               <div className={`flex items-start gap-3 ${recommended ? "sm:items-center" : ""}`}>
@@ -77,8 +76,8 @@ const Contact = () => {
           ))}
         </section>
 
-        <section aria-labelledby="workshop-title" className={cardStyle}>
-          <div className="grid items-center gap-5 sm:grid-cols-2">
+        <section aria-labelledby="workshop-title" className={`${cardStyle} lg:col-span-2`}>
+          <div className="grid items-center gap-5 sm:grid-cols-2 lg:gap-10">
             <div>
               <Small className="leading-relaxed text-primary">{workshop.eyebrow}</Small>
               <h2 id="workshop-title" className="mt-1 font-display text-2xl font-semibold text-headline">{workshop.title}</h2>
@@ -147,7 +146,7 @@ const Contact = () => {
           </div>
         </section>
 
-        <section aria-labelledby="personal-approach-title" className={`${cardStyle} flex items-start gap-3 bg-secondary`}>
+        <section aria-labelledby="personal-approach-title" className={`${cardStyle} flex items-start gap-3 bg-secondary lg:col-span-2`}>
           <span className={iconStyle}><FaRegHandshake size={25} aria-hidden="true" /></span>
           <div className="min-w-0">
             <h2 id="personal-approach-title" className="font-display text-lg font-semibold text-headline">{personalApproach.title}</h2>

@@ -46,10 +46,12 @@ const Navbar = () => {
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <nav className=" flex flex-col items-center justify-center">
-        <Logo />
-        <Small className="uppercase shade">{business.tagline}</Small>
-        <ul className="flex w-full items-center justify-evenly pt-1">
+      <nav aria-label="Main navigation" className="mx-auto flex w-full flex-col items-center justify-center sm:max-w-2xl md:max-w-4xl lg:max-w-6xl lg:flex-row lg:justify-between lg:px-6 xl:max-w-7xl">
+        <div className="contents lg:block lg:shrink-0 lg:text-center">
+          <Logo className="lg:w-52" />
+          <Small className="uppercase shade">{business.tagline}</Small>
+        </div>
+        <ul className="flex w-full items-center justify-evenly pt-1 lg:w-auto lg:justify-end lg:gap-12 lg:pt-0">
           {menuData.map((menu, index) => (
             <NavDropdown
               key={menu.label}

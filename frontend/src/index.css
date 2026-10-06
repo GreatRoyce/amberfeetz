@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .page-shell {
+    @apply mx-auto mt-20 w-full max-w-[320px] px-3 pb-8 pt-4 sm:max-w-2xl sm:px-6 sm:pb-12 sm:pt-6 md:max-w-4xl lg:max-w-6xl lg:px-8 lg:pb-16 xl:max-w-7xl;
+  }
+
+  .page-shell-wide {
+    @apply max-w-none sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl;
+  }
+}

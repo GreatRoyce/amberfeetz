@@ -31,9 +31,9 @@ const buttonStyles = {
   },
 
   sizes: {
-    xs: "h-6 px-3 text-[8px]",
-    sm: "h-7 px-4 text-[11px]",
-    md: "h-8 px-5 text-[13px]",
+    xs: "h-6 px-3 text-[8px] sm:h-10 sm:px-4 sm:text-sm",
+    sm: "h-7 px-4 text-[11px] sm:h-11 sm:px-5 sm:text-base",
+    md: "h-8 px-5 text-[13px] sm:h-12 sm:px-6 sm:text-base",
     lg: "h-12 px-6 text-lg",
     xl: "h-14 px-8 text-xl",
 

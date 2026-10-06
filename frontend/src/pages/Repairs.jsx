@@ -1,4 +1,4 @@
-﻿import PageContainer from "../components/layout/PageContainer";
+import PageContainer from "../components/layout/PageContainer";
 import business from "../data/business";
 import { buildWhatsAppUrl } from "../features/whatsapp/utils/buildWhatsAppUrl";
 import repairSteps from "../data/repairSteps";
@@ -26,14 +26,14 @@ const Repairs = () => {
   });
   return (
     <PageContainer>
-      <main className="space-y-3">
+      <div className="space-y-3 sm:space-y-6 lg:space-y-8">
         {/* =====================
             HERO
         ====================== */}
 
         <section
           className="
-            relative h-56
+            relative h-56 sm:h-80 lg:h-[420px]
             overflow-hidden
             rounded-xl
             bg-cover bg-center
@@ -49,7 +49,7 @@ const Repairs = () => {
           <div
             className="
               absolute inset-x-0 bottom-0
-              z-10 p-2
+              z-10 p-2 sm:p-6 lg:p-10
               text-offwhite
             "
           >
@@ -57,11 +57,11 @@ const Repairs = () => {
               Shoe Repair & Restoration
             </Small>
 
-            <h2 className="mt-1 font-display text-[20px] font-semibold leading-tight tracking-wide text-offwhite">
+            <h1 className="mt-1 max-w-2xl font-display text-[20px] font-semibold leading-tight tracking-wide text-offwhite sm:text-3xl lg:text-5xl">
               Give Your Shoes Another Life.
-            </h2>
+            </h1>
 
-            <p className="mt-1 max-w-xs text-[8px] leading-relaxed text-offwhite/80">
+            <p className="mt-1 max-w-xs text-[8px] leading-relaxed text-offwhite/80 sm:mt-3 sm:max-w-xl sm:text-base">
               Expert repair and careful restoration for footwear worth keeping.
             </p>
           </div>
@@ -75,27 +75,27 @@ const Repairs = () => {
           <div className="mb-1 flex flex-wrap items-center justify-between gap-1 p-1">
             <h2
               id="repair-process-heading"
-              className="font-display text-[12px] font-semibold text-inverted"
+              className="font-display text-[12px] font-semibold text-inverted sm:text-2xl lg:text-3xl"
             >
               How It Works
             </h2>
-            <span className="text-[8px] uppercase tracking-wider text-body">
+            <span className="text-[8px] sm:text-xs md:text-sm uppercase tracking-wider text-body">
               3 simple steps
             </span>
           </div>
 
-          <ol className="grid grid-cols-3 gap-1">
+          <ol className="grid grid-cols-3 gap-1 sm:gap-4 lg:gap-6">
             {repairSteps.map((step) => {
               const Icon = step.icon;
 
               return (
                 <li
                   key={step.id}
-                  className="min-w-0 rounded-lg border border-tertiary/20 bg-tertiary/10 p-1"
+                  className="min-w-0 rounded-lg border border-tertiary/20 bg-tertiary/10 p-1 sm:p-4 lg:p-6"
                 >
                   <div className="mb-1 flex items-center justify-between gap-1">
                     <span
-                      className="text-[8px] font-semibold tracking-wider text-primary"
+                      className="text-[8px] sm:text-xs md:text-sm font-semibold tracking-wider text-primary"
                       aria-hidden="true"
                     >
                       {step.id}
@@ -104,10 +104,10 @@ const Repairs = () => {
                       <Icon size={16} aria-hidden="true" />
                     </span>
                   </div>
-                  <h3 className="flex min-h-7 items-center font-display text-[10px] font-semibold leading-tight text-inverted">
+                  <h3 className="flex min-h-7 items-center font-display text-[10px] font-semibold leading-tight text-inverted sm:text-xl">
                     {step.title}
                   </h3>
-                  <p className="mt-1 text-[8px] leading-relaxed text-body">
+                  <p className="mt-1 text-[8px] sm:text-xs md:text-sm leading-relaxed text-body">
                     {step.description}
                   </p>
                 </li>
@@ -117,7 +117,7 @@ const Repairs = () => {
         </section>
 
         <div className="flex items-center justify-between">
-          <p className="text-[11px] font-display text-inverted">
+          <p className="text-[11px] font-display text-inverted sm:text-2xl">
             Real Repairs. Real Results.
           </p>
           <div className="flex justify-center items-center gap-1 text-inverted/60">
@@ -128,7 +128,7 @@ const Repairs = () => {
             <Small>After.</Small>
           </div>
         </div>
-        <div className="my-1 grid grid-cols-[1fr_auto_1fr] h-24 relative">
+        <div className="my-1 grid grid-cols-[1fr_auto_1fr] h-24 relative overflow-hidden rounded-lg sm:h-56 sm:gap-3 lg:h-80">
           <div
             style={{
               backgroundImage: `url(${beforeImage})`,
@@ -157,7 +157,8 @@ const Repairs = () => {
             WHATSAPP CTA
         ====================== */}
 
-        <section>
+        <section className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-8">
+          <div>
           <a
             href={repairWhatsAppUrl}
             target="_blank"
@@ -168,8 +169,8 @@ const Repairs = () => {
               gap-1
               rounded-xl
               bg-green-900
-              px-1 py-2
-              text-[8px]
+              px-1 py-2 sm:min-h-12 sm:px-4 sm:py-3
+              text-[8px] sm:text-sm
               font-semibold
               uppercase
               tracking-wider
@@ -186,9 +187,9 @@ const Repairs = () => {
           <p
             className="
               mx-auto mt-1 p-1
-              max-w-xs
+              max-w-xs sm:max-w-lg
               text-center
-              text-[8px]
+              text-[8px] sm:text-xs md:text-sm
               leading-tight
               text-inverted/70
             "
@@ -197,46 +198,46 @@ const Repairs = () => {
             Typically assessed within a few hours.
           </p>
 
-          <div className="h-fit grid grid-cols-4 bg-gray-500/10 rounded-md my-1 p-[0.5px] shadow-md">
+          <div className="h-fit grid grid-cols-4 bg-gray-500/10 rounded-md my-1 p-[0.5px] shadow-md sm:my-4 sm:gap-2 sm:p-3">
             <div className="flex flex-col justify-center items-center text-center mx-auto p-1">
               <CiDeliveryTruck />
-              <p className="text-[7px] leading-tight text-inverted/70 pt-1">
+              <p className="text-[7px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 Local Drop-off & Nationwide Shipping
               </p>
             </div>
 
             <div className="flex flex-col justify-center items-center text-center mx-auto border ">
               <IoRibbonOutline />
-              <p className="text-[7px] leading-tight text-inverted/70 pt-1">
+              <p className="text-[7px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 Quality Materials & Finishing
               </p>
             </div>
 
             <div className="flex flex-col justify-center items-center text-center mx-auto p-1 border border-l-0">
               <FaRegClock />
-              <p className="text-[7px] leading-tight text-inverted/70 pt-1">
+              <p className="text-[7px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 Transparent Advice and Timelines
               </p>
             </div>
 
             <div className="flex flex-col justify-center items-center text-center mx-auto p-1">
               <FaRegHeart />
-              <p className="text-[7px] leading-tight text-inverted/70 pt-1">
+              <p className="text-[7px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 Extend the Life of Your Footwear
               </p>
             </div>
           </div>
 
-          <div className="h-fit bg-gray-500/10 justify-center items-center grid grid-cols-[auto_5fr] shadow-md rounded-md my-2 p-1">
+          <div className="h-fit bg-gray-500/10 justify-center items-center grid grid-cols-[auto_minmax(0,1fr)] shadow-md rounded-md my-2 p-1 sm:gap-3 sm:p-4">
             <FaTools
               size={18}
               className="rounded-full p-1 border border-primary bg-primary text-offwhite m-1"
             />
             <div className="flex flex-col justify-start text-left mx-auto p-1 ">
-              <p className="text-[10px] leading-tight font-display text-inverted pt-1">
+              <p className="text-[10px] sm:text-sm md:text-base leading-tight font-display text-inverted pt-1">
                 Our Craft Guarantee
               </p>
-              <small className="text-[8px] leading-tight text-inverted/70 pt-1">
+              <small className="text-[8px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 All repairs use genuine materials such as vegetable-tanned
                 leather insoles, English oak bark soles and traditional
                 stitching methods to preserve the original character and lasting
@@ -245,10 +246,11 @@ const Repairs = () => {
             </div>
             
           </div>
+          </div>
           <div>
-            <div className="mt-3">
+            <div className="mt-3 lg:mt-0">
               <div className="mb-1 flex items-center justify-between gap-1">
-                <p className="font-display text-[12px] text-inverted">
+                <p className="font-display text-[12px] text-inverted sm:text-xl">
                   Frequently Asked Questions
                 </p>
 
@@ -259,7 +261,7 @@ const Repairs = () => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </PageContainer>
   );
 };

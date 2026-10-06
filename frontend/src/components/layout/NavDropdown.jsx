@@ -41,7 +41,7 @@ const NavDropdown = ({ label, options, isOpen, onToggle, onClose, align = "cente
         ref={triggerRef}
         type="button"
         onClick={onToggle}
-        className="flex items-center gap-1"
+        className="flex items-center gap-1 sm:min-h-10 sm:gap-2"
         aria-expanded={isOpen}
         aria-controls={isOpen ? dropdownId : undefined}
       >
@@ -75,8 +75,8 @@ const NavDropdown = ({ label, options, isOpen, onToggle, onClose, align = "cente
               onClick={onClose}
               className="
                 block break-words
-                px-3 py-2
-                text-[10px] tracking-wider
+                px-3 py-2 sm:px-4 sm:py-3
+                text-[10px] sm:text-sm md:text-base tracking-wider
                 shade
                 transition-colors
                 hover:bg-neutral-100

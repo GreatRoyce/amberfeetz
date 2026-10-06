@@ -55,23 +55,23 @@ const Catalogue = () => {
   return (
     <div className="min-h-screen bg-offwhite">
       <Navbar />
-      <main className="mx-auto mt-20 flex w-full max-w-[320px] flex-col gap-4 px-3 pb-8 pt-4">
+      <main className="page-shell flex flex-col gap-4 sm:gap-6 lg:gap-8">
         <Reveal className="w-full" btn="w-full">
           <header>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-[10px] font-semibold tracking-wider text-inverted hover:text-primary"
+              className="inline-flex items-center gap-2 text-[10px] sm:text-sm md:text-base font-semibold tracking-wider text-inverted hover:text-primary"
             >
               <FaArrowLeft size={8} aria-hidden="true" />
               Home
             </Link>
-            <p className="mt-4 font-code text-[11px] uppercase leading-6 tracking-wide text-tertiary">
+            <p className="mt-4 font-code text-[11px] sm:text-sm md:text-base uppercase leading-6 tracking-wide text-tertiary">
               The Complete Catalogue
             </p>
             <h1 className="font-display text-[20px] font-semibold leading-tight tracking-[0.18em] text-inverted shade">
               Our Designs
             </h1>
-            <p className="mt-2 text-[11px] leading-relaxed text-body">
+            <p className="mt-2 text-[11px] sm:text-sm md:text-base leading-relaxed text-body">
               Find a pair you like, then order or customize it directly with the
               master cordwainer.
             </p>
@@ -79,11 +79,11 @@ const Catalogue = () => {
         </Reveal>
 
         <Reveal className="w-full" btn="w-full" delay={0.15}>
-          <div className="space-y-3">
+          <div className="space-y-3 lg:flex lg:items-center lg:justify-between lg:gap-8 lg:space-y-0">
             <div
               role="group"
               aria-label="Filter by category"
-              className="grid grid-cols-4 gap-2"
+              className="grid grid-cols-4 gap-2 sm:max-w-md lg:w-full lg:gap-4"
             >
               {categories.map((item) => (
                 <button
@@ -91,7 +91,7 @@ const Catalogue = () => {
                   type="button"
                   onClick={() => changeFilter("category", item)}
                   aria-pressed={category === item}
-                  className={`rounded px-2 py-2 text-[10px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary ${
+                  className={`rounded px-2 py-2 text-[10px] sm:text-sm md:text-base font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary ${
                     category === item
                       ? "bg-primary text-offwhite"
                       : "text-inverted hover:bg-primary/10"
@@ -102,7 +102,7 @@ const Catalogue = () => {
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-2 lg:gap-6">
               <div
                 role="group"
                 aria-label="Filter by gender"
@@ -114,7 +114,7 @@ const Catalogue = () => {
                     type="button"
                     onClick={() => changeFilter("gender", item)}
                     aria-pressed={gender === item}
-                    className={`rounded-full px-2 py-1 text-[10px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary ${
+                    className={`rounded-full px-2 py-1 text-[10px] sm:text-sm md:text-base font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary ${
                       gender === item
                         ? "bg-primary text-offwhite"
                         : "text-inverted/60 hover:text-primary"
@@ -124,14 +124,14 @@ const Catalogue = () => {
                   </button>
                 ))}
               </div>
-              <p role="status" className="text-[10px] text-inverted/60">
+              <p role="status" className="text-[10px] sm:text-sm md:text-base text-inverted/60">
                 Showing {visibleProducts.length} of {filteredProducts.length}
               </p>
             </div>
           </div>
         </Reveal>
 
-        <section aria-label="Footwear designs" className="grid grid-cols-2 gap-3">
+        <section aria-label="Footwear designs" className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-6">
           {visibleProducts.map((product, index) => {
             const primaryImage =
               product.images.find((image) => image.isPrimary) ?? product.images[0];
@@ -151,16 +151,16 @@ const Catalogue = () => {
                     src={primaryImage?.url}
                     alt={primaryImage?.alt || product.name}
                     loading="lazy"
-                    className="h-32 w-full bg-secondary/40 object-contain p-2"
+                    className="h-32 w-full bg-secondary/40 object-contain p-2 sm:h-56 sm:p-4 lg:h-64 xl:h-72"
                   />
-                  <div className="space-y-1.5 p-2">
+                  <div className="space-y-1.5 p-2 sm:space-y-2 sm:p-4">
                     <Small className="block leading-relaxed text-tertiary">
                       Ref: {product.referenceCode}
                     </Small>
-                    <h2 className="text-[11px] font-semibold leading-snug text-inverted">
+                    <h2 className="text-[11px] sm:text-sm md:text-base font-semibold leading-snug text-inverted">
                       {product.name}
                     </h2>
-                    <p className="text-[10px] font-semibold text-body">
+                    <p className="text-[10px] sm:text-sm md:text-base font-semibold text-body">
                       {priceFormatter.format(product.price)}
                     </p>
                   </div>
@@ -169,22 +169,22 @@ const Catalogue = () => {
             );
           })}
           {filteredProducts.length === 0 && (
-            <p className="col-span-2 rounded-lg border border-inverted/10 px-3 py-6 text-center text-[11px] leading-relaxed text-body">
+            <p className="col-span-full rounded-lg border border-inverted/10 px-3 py-6 text-center text-[11px] leading-relaxed text-body sm:text-base">
               No designs match these filters. Try another category or select All.
             </p>
           )}
         </section>
 
         <Reveal className="w-full" btn="w-full" delay={0.1}>
-          <aside className="flex flex-wrap items-center gap-2 rounded-lg border border-inverted/10 bg-body/10 p-3">
+          <aside className="flex flex-wrap items-center gap-2 rounded-lg border border-inverted/10 bg-body/10 p-3 sm:gap-4 sm:p-5">
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-900 text-offwhite">
               <MdOutlineChat size={16} aria-hidden="true" />
             </span>
             <div className="min-w-0 flex-1">
-              <h2 className="text-[11px] font-semibold leading-snug text-inverted">
+              <h2 className="text-[11px] sm:text-sm md:text-base font-semibold leading-snug text-inverted">
                 Have a specific design in mind?
               </h2>
-              <p className="mt-1 text-[10px] leading-relaxed text-inverted/70">
+              <p className="mt-1 text-[10px] sm:text-sm md:text-base leading-relaxed text-inverted/70">
                 Send reference photos to the workshop.
               </p>
             </div>
@@ -192,7 +192,7 @@ const Catalogue = () => {
               href={inquiryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-inverted/10 bg-white px-3 py-2 text-[10px] font-semibold uppercase text-inverted hover:text-primary"
+              className="rounded-full border border-inverted/10 bg-white px-3 py-2 text-[10px] sm:text-sm md:text-base font-semibold uppercase text-inverted hover:text-primary"
             >
               Inquire
             </a>
@@ -203,14 +203,14 @@ const Catalogue = () => {
           <button
             type="button"
             onClick={() => setPagination({ key: location.key, count: visibleCount + pageSize })}
-            className="rounded-lg border border-inverted/10 bg-body/10 p-3 text-center text-[11px] text-inverted hover:bg-body/20"
+            className="rounded-lg border border-inverted/10 bg-body/10 p-3 text-center text-[11px] sm:text-sm md:text-base text-inverted hover:bg-body/20"
           >
             <span className="font-semibold">Load More Pairs </span>
             <span className="text-inverted/60">({remainingCount} Remaining)</span>
           </button>
         )}
-        <Footer></Footer>
       </main>
+      <Footer />
     </div>
   );
 };

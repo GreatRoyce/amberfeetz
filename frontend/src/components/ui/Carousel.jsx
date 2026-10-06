@@ -58,7 +58,7 @@ const Carousel = ({
         <CarouselImage
           key={currentImage.url}
           image={currentImage}
-          className="h-[320px] w-full object-contain sm:h-[360px]"
+          className="h-[320px] w-full object-contain sm:h-[420px] lg:h-[520px] xl:h-[600px]"
         />
 
         {/* Previous */}

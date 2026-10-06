@@ -12,7 +12,7 @@ const Accordion = ({ items = [] }) => {
   };
 
   return (
-    <div className="space-y-1">
+    <div className="space-y-1 sm:space-y-3">
       {items.map((item, index) => {
         const isOpen = openItem === index;
         const buttonId = `${accordionId}-question-${index}`;
@@ -40,7 +40,7 @@ const Accordion = ({ items = [] }) => {
                 flex min-h-9 w-full
                 items-center justify-between
                 gap-1
-                p-1
+                p-1 sm:min-h-12 sm:gap-3 sm:p-3
                 text-left
                 transition-colors hover:bg-tertiary/10
                 focus-visible:outline focus-visible:outline-2
@@ -49,7 +49,7 @@ const Accordion = ({ items = [] }) => {
             >
               <span
                 className="
-                  text-[10px]
+                  text-[10px] sm:text-base
                   font-medium
                   text-inverted
                   leading-relaxed
@@ -92,8 +92,8 @@ const Accordion = ({ items = [] }) => {
                 <p
                   className="
                     border-t border-inverted/10
-                    p-1
-                    text-[8px]
+                    p-1 sm:p-3
+                    text-[8px] sm:text-sm
                     leading-relaxed
                     text-body
                   "

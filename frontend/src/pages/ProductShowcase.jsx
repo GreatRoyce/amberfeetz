@@ -56,109 +56,112 @@ const ProductShowcase = () => {
 
   return (
     <Reveal className="w-full" btn="w-full">
-      <section className="w-full overflow-hidden py-4 mt-20">
-        {/* =========================
-          PRODUCT CAROUSEL
-      ========================== */}
+      <section className="mx-auto mt-20 w-full max-w-7xl overflow-hidden py-4 sm:px-6 sm:py-8 lg:grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center lg:gap-12 lg:px-8 lg:py-12">
+        <div className="min-w-0">
+          {/* =========================
+            PRODUCT CAROUSEL
+        ========================== */}
 
-        <div className="relative flex items-center justify-center">
-          {/* Previous arrow */}
-          <button
-            type="button"
-            onClick={previousProduct}
-            aria-label="Previous product"
-            className="
-            absolute left-3 z-20
-            flex h-10 w-10
-            items-center justify-center
-            rounded-full bg-white
-            shadow-md transition
-            hover:scale-105
-          "
-          >
-            <FaArrowLeft size={14} />
-          </button>
-
-          {/* Product image */}
-          <div
-            className="
-            relative
-            h-[320px]
-            w-[82%]
-            max-w-sm
-            overflow-hidden
-            rounded-2xl
-            bg-neutral-100
-            shadow-lg
-          "
-          >
-            <img
-              src={primaryImage?.url}
-              alt={primaryImage?.alt || activeProduct.name}
-              className="h-full w-full object-contain "
-            />
-
-            {/* Reference code */}
-            <Small
+          <div className="relative flex items-center justify-center">
+            {/* Previous arrow */}
+            <button
+              type="button"
+              onClick={previousProduct}
+              aria-label="Previous product"
               className="
-              absolute left-3 top-3
-              rounded-md
-              bg-white/95
-              px-3 py-1.5
-              font-semibold
-              tracking-wider
-              text-tertiary
-              shadow-sm
+              absolute left-3 z-20
+              flex h-10 w-10
+              items-center justify-center
+              rounded-full bg-white
+              shadow-md transition
+              hover:scale-105
             "
             >
-              {activeProduct.referenceCode}
-            </Small>
+              <FaArrowLeft size={14} />
+            </button>
+
+            {/* Product image */}
+            <div
+              className="
+              relative
+              h-[320px] sm:h-[420px] lg:h-[520px] xl:h-[600px]
+              w-[82%] lg:w-full
+              max-w-sm sm:max-w-lg lg:max-w-none
+              overflow-hidden
+              rounded-2xl
+              bg-neutral-100
+              shadow-lg
+            "
+            >
+              <img
+                src={primaryImage?.url}
+                alt={primaryImage?.alt || activeProduct.name}
+                className="h-full w-full object-contain "
+              />
+
+              {/* Reference code */}
+              <Small
+                className="
+                absolute left-3 top-3
+                rounded-md
+                bg-white/95
+                px-3 py-1.5
+                font-semibold
+                tracking-wider
+                text-tertiary
+                shadow-sm
+              "
+              >
+                {activeProduct.referenceCode}
+              </Small>
+            </div>
+
+            {/* Next arrow */}
+            <button
+              type="button"
+              onClick={nextProduct}
+              aria-label="Next product"
+              className="
+              absolute right-3 z-20
+              flex h-10 w-10
+              items-center justify-center
+              rounded-full bg-white
+              shadow-md transition
+              hover:scale-105
+            "
+            >
+              <FaArrowRight size={14} />
+            </button>
           </div>
 
-          {/* Next arrow */}
-          <button
-            type="button"
-            onClick={nextProduct}
-            aria-label="Next product"
-            className="
-            absolute right-3 z-20
-            flex h-10 w-10
-            items-center justify-center
-            rounded-full bg-white
-            shadow-md transition
-            hover:scale-105
-          "
+          {/* =========================
+            CAROUSEL INDICATORS
+        ========================== */}
+
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, type: "spring" }}
+            className="mt-4 flex justify-center gap-1"
           >
-            <FaArrowRight size={14} />
-          </button>
+            {homeProducts.map((product, index) => (
+              <button
+                key={product.id}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={`View ${product.name}`}
+              >
+                <GoDotFill
+                  size={index === activeIndex ? 18 : 12}
+                  className={
+                    index === activeIndex ? "text-tertiary" : "text-neutral-300"
+                  }
+                />
+              </button>
+            ))}
+          </motion.div>
+
         </div>
-
-        {/* =========================
-          CAROUSEL INDICATORS
-      ========================== */}
-
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, type: "spring" }}
-          className="mt-4 flex justify-center gap-1"
-        >
-          {homeProducts.map((product, index) => (
-            <button
-              key={product.id}
-              type="button"
-              onClick={() => setActiveIndex(index)}
-              aria-label={`View ${product.name}`}
-            >
-              <GoDotFill
-                size={index === activeIndex ? 18 : 12}
-                className={
-                  index === activeIndex ? "text-tertiary" : "text-neutral-300"
-                }
-              />
-            </button>
-          ))}
-        </motion.div>
 
         {/* =========================
           PRODUCT INFORMATION
@@ -168,13 +171,13 @@ const ProductShowcase = () => {
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 2, type: "spring" }}
-          className="mx-auto mt-1 max-w-md px-5 text-center"
+          className="mx-auto mt-1 w-full max-w-md px-5 text-center sm:mt-6 sm:max-w-lg lg:mt-0 lg:px-0 lg:text-left"
         >
           {/* Category + Gender */}
           <div
             className="
             flex items-center
-            justify-center gap-2
+            justify-center gap-2 lg:justify-start
             uppercase
             text-tertiary
           "
@@ -195,7 +198,7 @@ const ProductShowcase = () => {
           </Small>
 
           {/* Description */}
-          <P className="mx-auto mt-3 max-w-sm leading-relaxed text-body">
+          <P className="mx-auto mt-3 max-w-sm leading-relaxed text-body lg:mx-0 lg:max-w-none">
             {activeProduct.shortDescription}
           </P>
 
@@ -203,7 +206,7 @@ const ProductShowcase = () => {
           <div
             className=" shade
             mt-3 flex
-            items-center justify-center
+            items-center justify-center lg:justify-start
             gap-2 text-tertiary
           "
           >
@@ -216,8 +219,8 @@ const ProductShowcase = () => {
             PRICE
         ========================== */}
 
-          <div className="mt-4 flex items-center justify-center gap-3">
-            <H2>{formatPrice(activeProduct.price)}</H2>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+            <H2 className="sm:text-2xl lg:text-3xl">{formatPrice(activeProduct.price)}</H2>
 
             {activeProduct.previousPrice && (
               <Small className="text-body line-through opacity-60">
