@@ -25,7 +25,7 @@ const Repairs = () => {
     text: "Hello, I'd like to discuss repairing a pair of shoes. I'll send photos of the footwear here so you can assess it.",
   });
   return (
-    <PageContainer>
+    <PageContainer wide>
       <div className="space-y-3 sm:space-y-6 lg:space-y-8">
         {/* =====================
             HERO

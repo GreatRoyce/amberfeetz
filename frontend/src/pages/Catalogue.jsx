@@ -9,6 +9,7 @@ import business from "../data/business";
 import products from "../data/product";
 import { buildWhatsAppUrl } from "../features/whatsapp/utils/buildWhatsAppUrl";
 import Footer from "../components/layout/Footer";
+import PageContainer from "../components/layout/PageContainer";
 
 const categories = ["All", "Slips", "Shoes", "Sandals"];
 const genders = ["All", "Men", "Women"];
@@ -53,7 +54,7 @@ const Catalogue = () => {
   });
 
   return (
-    <div className="min-h-screen bg-offwhite">
+    <PageContainer wide className="min-h-screen bg-offwhite">
       <Navbar />
       <main className="page-shell flex flex-col gap-4 sm:gap-6 lg:gap-8">
         <Reveal className="w-full" btn="w-full">
@@ -211,7 +212,7 @@ const Catalogue = () => {
         )}
       </main>
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 

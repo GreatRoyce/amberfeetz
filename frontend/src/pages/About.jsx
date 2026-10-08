@@ -18,7 +18,7 @@ const About = () => {
   });
 
   return (
-    <PageContainer>
+    <PageContainer wide>
       <div className="space-y-3 pb-1 sm:space-y-6 lg:space-y-8">
         {aboutHero && (
           <section

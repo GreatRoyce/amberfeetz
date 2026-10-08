@@ -17,7 +17,7 @@ const HowToOrder = () => {
   });
 
   return (
-    <PageContainer>
+    <PageContainer wide>
       <header
         style={{ backgroundImage: `url(${orderHero})` }}
         className="relative isolate min-h-44 overflow-hidden rounded-md bg-primary bg-cover bg-center bg-no-repeat sm:min-h-72 lg:min-h-96"

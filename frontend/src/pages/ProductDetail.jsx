@@ -28,7 +28,7 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <PageContainer>
+      <PageContainer wide>
         <div className="rounded-xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-8">
           <h1 className="text-lg font-semibold text-headline sm:text-3xl">
             Design not found

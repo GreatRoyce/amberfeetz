@@ -75,7 +75,7 @@ const NavDropdown = ({ label, options, isOpen, onToggle, onClose, align = "cente
               onClick={onClose}
               className="
                 block break-words
-                px-3 py-2 sm:px-4 sm:py-3
+                px-3 py-3 sm:px-4 sm:py-4
                 text-[10px] sm:text-sm md:text-base tracking-wider
                 shade
                 transition-colors

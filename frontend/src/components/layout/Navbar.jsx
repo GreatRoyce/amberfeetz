@@ -51,7 +51,7 @@ const Navbar = () => {
           <Logo className="lg:w-52" />
           <Small className="uppercase shade">{business.tagline}</Small>
         </div>
-        <ul className="flex w-full items-center justify-evenly pt-1 lg:w-auto lg:justify-end lg:gap-12 lg:pt-0">
+        <ul className="flex w-full items-center justify-evenly pt-4 lg:w-auto lg:justify-end lg:gap-12 lg:pt-0">
           {menuData.map((menu, index) => (
             <NavDropdown
               key={menu.label}
