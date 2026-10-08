@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import products from "../data/product";
+import business from "../data/business";
+import { buildWhatsAppUrl } from "../features/whatsapp/utils/buildWhatsAppUrl";
+import {
+  buildCustomizationMessage,
+  buildOrderMessage,
+} from "../features/whatsapp/utils/whatsappMessages";
 import { motion } from "framer-motion";
 
 import { H2, H5, Small, P } from "../components/ui/Typography";
@@ -53,6 +59,15 @@ const ProductShowcase = () => {
   if (!activeProduct) {
     return null;
   }
+
+  const orderUrl = buildWhatsAppUrl({
+    number: business.whatsapp,
+    text: buildOrderMessage(activeProduct),
+  });
+  const customizeUrl = buildWhatsAppUrl({
+    number: business.whatsapp,
+    text: buildCustomizationMessage(),
+  });
 
   return (
     <Reveal className="w-full" btn="w-full">
@@ -233,9 +248,10 @@ const ProductShowcase = () => {
             ACTIONS
         ========================== */}
 
-          <div className="mt-5 flex flex-col gap-2">
+          <div className="mt-5 flex flex-col gap-3">
             <Button
-              className="w-full"
+              onClick={() => window.open(orderUrl, "_blank", "noopener,noreferrer")}
+              className="w-full min-h-11"
               leftIcon={<FaWhatsapp size={18} />}
               rightIcon={<FaArrowRight size={14} />}
             >
@@ -244,7 +260,8 @@ const ProductShowcase = () => {
 
             <Button
               variant="outline"
-              className="w-full"
+              onClick={() => window.open(customizeUrl, "_blank", "noopener,noreferrer")}
+              className="w-full min-h-11"
               leftIcon={<FaWhatsapp size={18} />}
             >
               Customize Your Pair
@@ -254,7 +271,7 @@ const ProductShowcase = () => {
           {/* View catalogue */}
 
           <Button
-            className="mt-1 w-full"
+            className="mt-3 w-full"
             variant="ghost"
             onClick={() => navigate("/catalogue")}
           >

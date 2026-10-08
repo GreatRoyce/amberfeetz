@@ -60,7 +60,7 @@ const ProductDetail = () => {
 
   const customizeUrl = buildWhatsAppUrl({
     number: business.whatsapp,
-    text: buildCustomizationMessage(product),
+    text: buildCustomizationMessage(),
   });
 
   return (

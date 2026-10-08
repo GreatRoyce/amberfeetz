@@ -19,7 +19,7 @@ const About = () => {
 
   return (
     <PageContainer wide>
-      <div className="space-y-3 pb-1 sm:space-y-6 lg:space-y-8">
+      <div className="space-y-4 pb-1 sm:space-y-6 lg:space-y-8">
         {aboutHero && (
           <section
             aria-labelledby="about-title"
@@ -113,7 +113,7 @@ const About = () => {
             aria-hidden="true"
           />
           <blockquote className="mx-auto max-w-[220px] sm:max-w-lg lg:max-w-2xl">
-            <p className="leading-relaxed italic text-[9px] font-display font-normal text-inverted sm:text-xl lg:text-2xl">
+            <p className="leading-relaxed italic text-md font-display font-normal text-inverted sm:text-xl lg:text-2xl">
               "Good shoes are not just made. They are made with intention."
             </p>
           </blockquote>
@@ -122,19 +122,19 @@ const About = () => {
             aria-hidden="true"
           />
           <figcaption>
-            <Small className="leading-relaxed text-primary">
+            <Small className="leading-relaxed text-primary shade">
               THE AMBERFEETZ MAKER
             </Small>
           </figcaption>
         </figure>
 
         <div className="rounded-xl border border-tertiary/15 bg-white p-2 sm:p-6">
-          <div className="flex flex-col gap-1 sm:mx-auto sm:max-w-2xl sm:flex-row sm:gap-4">
+          <div className="flex flex-col gap-3 sm:mx-auto sm:max-w-2xl sm:flex-row sm:gap-4">
             <Button
               leftIcon={<TbShoe size={14} aria-hidden="true" />}
               rightIcon={<FaArrowRight size={10} aria-hidden="true" />}
               fullWidth
-              className="min-h-8 rounded-lg text-white text-[8px] sm:text-xs md:text-sm uppercase shadow-none hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="min-h-11 rounded-lg text-white text-[11px] sm:text-xs md:text-sm uppercase shadow-none hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               size="sm"
               onClick={() => navigate("/how-to-order")}
             >
@@ -145,8 +145,8 @@ const About = () => {
               rightIcon={<FaArrowRight size={10} aria-hidden="true" />}
               variant="outline"
               fullWidth
-              className="h-auto min-h-8 gap-1 rounded-lg border-primary/20 bg-offwhite p-1 text-inverted shadow-none hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              size="xs"
+              className="h-auto min-h-11 gap-1 rounded-lg border-primary/20 bg-offwhite p-1 text-inverted shadow-none hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              size="sm"
               onClick={() =>
                 window.open(whatsappUrl, "_blank", "noopener,noreferrer")
               }

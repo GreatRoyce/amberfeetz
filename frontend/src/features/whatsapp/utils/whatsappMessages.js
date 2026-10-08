@@ -6,9 +6,8 @@ export const buildOrderMessage = (product) => {
   return message;
 };
 
-export const buildCustomizationMessage = (product) => {
-  const productName = product?.name || "this pair";
-  const message = `Hello, I would like to customize ${productName}. Please tell me the available options, sizes, and process.`;
+export const buildCustomizationMessage = () => {
+  const message = "Hello, I would like a custom pair of footwear. Can we discuss the type, design, materials, sizing, and ordering process?";
 
   return message;
 };

@@ -93,7 +93,7 @@ const Accordion = ({ items = [] }) => {
                   className="
                     border-t border-inverted/10
                     p-1 sm:p-3
-                    text-[8px] sm:text-sm
+                    text-[9px] sm:text-sm
                     leading-relaxed
                     text-body
                   "

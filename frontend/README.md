@@ -1,5 +1,14 @@
 # React + Vite
 
+## Vercel deployment
+
+Set the Vercel project's Root Directory to `frontend`, use the Vite framework
+preset, build with `npm run build`, and serve the `dist` output directory.
+The `vercel.json` rewrite serves `index.html` for client routes so direct visits
+and refreshes on paths such as `/catalogue` and `/design/SL-M-001` load the app.
+Redeploy after changing this configuration. Unknown routes still show the app's
+Page not found screen.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

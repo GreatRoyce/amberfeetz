@@ -92,7 +92,7 @@ const HowToOrder = () => {
         </div>
 
         <div className="rounded-xl border border-tertiary/15 bg-white p-2 sm:p-6">
-          <div className="flex flex-col gap-1 sm:mx-auto sm:max-w-2xl sm:flex-row sm:gap-4">
+          <div className="flex flex-col gap-3 sm:mx-auto sm:max-w-2xl sm:flex-row sm:gap-4">
             <Button
               leftIcon={<TbShoe size={14} aria-hidden="true" />}
               rightIcon={<FaArrowRight size={10} aria-hidden="true" />}

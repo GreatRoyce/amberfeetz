@@ -53,7 +53,7 @@ const Repairs = () => {
               text-offwhite
             "
           >
-            <Small className="uppercase tracking-[0.2em]">
+            <Small className="uppercase shade tracking-[0.2em]">
               Shoe Repair & Restoration
             </Small>
 
@@ -71,11 +71,11 @@ const Repairs = () => {
             REPAIR PROCESS
         ====================== */}
 
-        <section aria-labelledby="repair-process-heading">
-          <div className="mb-1 flex flex-wrap items-center justify-between gap-1 p-1">
+        <section aria-labelledby="repair-process-heading" className="pt-4">
+          <div className="mb-1 flex flex-wrap items-center justify-between gap-1 ">
             <h2
               id="repair-process-heading"
-              className="font-display text-[12px] font-semibold text-inverted sm:text-2xl lg:text-3xl"
+              className="font-display text-[12px] font-semibold pb-2 text-inverted sm:text-2xl lg:text-3xl"
             >
               How It Works
             </h2>
@@ -116,8 +116,8 @@ const Repairs = () => {
           </ol>
         </section>
 
-        <div className="flex items-center justify-between">
-          <p className="text-[11px] font-display text-inverted sm:text-2xl">
+        <div className="flex items-center justify-between pt-2">
+          <p className="text-[11px] font-display text-inverted sm:text-2xl font-semibold">
             Real Repairs. Real Results.
           </p>
           <div className="flex justify-center items-center gap-1 text-inverted/60">
@@ -198,37 +198,37 @@ const Repairs = () => {
             Typically assessed within a few hours.
           </p>
 
-          <div className="h-fit grid grid-cols-4 bg-gray-500/10 rounded-md my-1 p-[0.5px] shadow-md sm:my-4 sm:gap-2 sm:p-3">
+          <div className="h-fit grid grid-cols-4 bg-gray-500/10 rounded-md my-1 p-[1px] border border-primary/80 shadow-md sm:my-4 sm:gap-2 sm:p-3">
             <div className="flex flex-col justify-center items-center text-center mx-auto p-1">
-              <CiDeliveryTruck />
-              <p className="text-[7px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
+              <CiDeliveryTruck className="text-primary" />
+              <p className="text-[8px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 Local Drop-off & Nationwide Shipping
               </p>
             </div>
 
             <div className="flex flex-col justify-center items-center text-center mx-auto border ">
-              <IoRibbonOutline />
-              <p className="text-[7px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
+              <IoRibbonOutline className="text-primary" />
+              <p className="text-[8px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 Quality Materials & Finishing
               </p>
             </div>
 
             <div className="flex flex-col justify-center items-center text-center mx-auto p-1 border border-l-0">
-              <FaRegClock />
-              <p className="text-[7px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
+              <FaRegClock className="text-primary" />
+              <p className="text-[8px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 Transparent Advice and Timelines
               </p>
             </div>
 
             <div className="flex flex-col justify-center items-center text-center mx-auto p-1">
-              <FaRegHeart />
-              <p className="text-[7px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
+              <FaRegHeart className="text-primary" />
+              <p className="text-[8px] sm:text-xs md:text-sm leading-tight text-inverted/70 pt-1">
                 Extend the Life of Your Footwear
               </p>
             </div>
           </div>
 
-          <div className="h-fit bg-gray-500/10 justify-center items-center grid grid-cols-[auto_minmax(0,1fr)] shadow-md rounded-md my-2 p-1 sm:gap-3 sm:p-4">
+          <div className="h-fit bg-gray-500/10 justify-center items-center grid grid-cols-[auto_minmax(0,1fr)] shadow-md rounded-md my-3 p-1 sm:gap-3 sm:p-4">
             <FaTools
               size={18}
               className="rounded-full p-1 border border-primary bg-primary text-offwhite m-1"
@@ -248,8 +248,8 @@ const Repairs = () => {
           </div>
           </div>
           <div>
-            <div className="mt-3 lg:mt-0">
-              <div className="mb-1 flex items-center justify-between gap-1">
+            <div className="mt-6 lg:mt-0">
+              <div className="mb-2 flex items-center justify-between gap-1">
                 <p className="font-display text-[12px] text-inverted sm:text-xl">
                   Frequently Asked Questions
                 </p>
