@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <div
       inert={isHidden}
-      className={`p-2 bg-secondary flex flex-col space-y-2 fixed top-0  left-0 w-full z-50 transition-transform duration-300 motion-reduce:transition-none ${
+      className={`p-2 bg-secondary flex flex-col space-y-2 fixed top-0 my-2 left-0 w-full z-50 transition-transform duration-300 motion-reduce:transition-none ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
